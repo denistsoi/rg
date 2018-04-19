@@ -1,5 +1,4 @@
 module.exports = {
-  base: "/refugeek",
   locales: {
     '/': {
       title: 'Refugeek',
