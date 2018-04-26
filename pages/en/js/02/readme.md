@@ -126,7 +126,7 @@ for (var i = 1; i <= 10; i++) {
 
 ## Data Types (Arrays)
 
-![array](/assets/images/array.png)  
+![array](/rg/assets/images/array.png)  
 
 > arrays are like boxes where we can store an unlimited amount of data
 ---

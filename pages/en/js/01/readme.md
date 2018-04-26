@@ -50,7 +50,7 @@ As developers, we use DevTools to find why something doesn't operate as intended
 
 ## Functions
 
-![function](/assets/images/function.png)
+![function](/rg/assets/images/function.png)
 
 ---
 #### Example
