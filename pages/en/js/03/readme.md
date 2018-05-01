@@ -8,77 +8,47 @@ sidebar: auto
 
 ## What we will do
 
-* Rebuild banking.java => banking.js
-* learn DOM APIs for the browser to build the frontend.
+* learn DOM Events
 * learn about eventListeners
+* introduction to objects
 
-## Banking.java
+## Events
 
-Please review [banking.md](banking.md)
+Note: You dont need to know all of these - but you can check them here
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventListener)  
 
-### Notes:
 
-- we have a Banking Class
-- it has these variables:
-
-``` java
-  static int account_number[] = new int[1000];
-  static int account_pin[]=new int[1000];
-  static int index=0,indexToCheck;
-  static String account_name[]=new String[1000];
-  static int account_balance[]=new int[1000];
-  static int genAcctNum=1000,acc_number,pin,newpin;
+``` md {4,13}
+abort, 
+beforeinput, 
+blur, 
+click, 
+compositionstart, 
+compositionupdate, 
+compositionend, 
+dblclick, 
+error, 
+focus, 
+focusin, 
+focusout, 
+input, 
+keydown, 
+keypress, 
+keyup, 
+load, 
+mousedown, 
+mouseenter, 
+mouseleave, 
+mousemove, 
+mouseout, 
+mouseover, 
+mouseup, 
+resize, 
+scroll, 
+select, 
+unload, 
+wheel
 ```
-
-- we have a main function that initiates a `while` loop
-  - it takes 6 user input choices
-    1. Create Account  
-    2. Deposit Money  
-    3. Withdraw money  
-    4. Check balance  
-    5. Change Pin  
-    0. Quit  
-
-1. we need to store account number + 
-    * generate account number  
-    * enter 4 digit pin
-2. deposit money (verify pin)  
-    * add balance  
-3. withdraw money  
-4. check balance  
-5. change pin  
-
-> store accounts as an object
-
-``` js
-// new Account(name, ****)
-function Account (name, pin) {
-  this.account = generateAccount();
-  this.name = name;
-  this.pin = encrypt(pin);
-}
-
-// stores bank
-function Bank () {
-  this.accounts = {};
-}
-
-Bank.prototype.createAccount = function () {
-
-}
-
-// runs app
-// listens to button input
-function App () {
-
-}
-
-// create a numpad for ATM - 
-for (var i = 0; i < 10; i++) {
-  // createElement...
-}
-```
-
 
 ## Event Listeners:
 
@@ -113,7 +83,7 @@ document.body.appendChild(dog);
 - [When to use buttons](https://css-tricks.com/use-button-element/)
 :::
 
-### onclick function
+### onclick Example
 
 ``` js
 var dog = document.createElement('button');
@@ -131,3 +101,101 @@ dog.onclick = function bark (event) {
 ### Event Delegate
 
 > view [list](./list.html)
+
+``` html
+<body>
+  <script>
+  // Make a list
+  var ul = document.createElement('ul');
+  document.body.appendChild(ul);
+
+  var li1 = document.createElement('li');
+  var li2 = document.createElement('li');
+  li1.innerHTML = 'first';
+  li2.innerHTML = 'second';
+  ul.appendChild(li1);
+  ul.appendChild(li2);
+
+  function hide(e){
+    // e.target refers to the clicked <li> element
+    // This is different than e.currentTarget which would refer to the parent <ul> in this context
+    e.target.style.visibility = 'hidden';
+  }
+
+  // Attach the listener to the list
+  // It will fire when each <li> is clicked
+  ul.addEventListener('click', hide, false);
+  </script>
+</body>
+```
+
+## Event Bubbling
+
+> It relates to the order in which event handlers are called when one element is nested inside a second element, and both elements have registered a listener for the same event (a click, for example).
+
+### Bubbling
+
+``` html
+<form onclick="alert('form')">FORM
+  <div onclick="alert('div')">DIV
+    <p onclick="alert('p')">P</p>
+  </div>
+</form>
+
+```
+### Stop Bubbling
+
+``` html
+<body onclick="alert(`the bubbling doesn't reach here`)">
+  <button onclick="event.stopPropagation()">Click me</button>
+</body>
+```
+
+## Events Summary
+
+The event handling process:
+
+- When an event happens – the most nested element where it happens gets labeled as the “target element” (event.target).
+- Then the event first moves from the document root down the event.target, calling handlers assigned with addEventListener(...., true) on the way.
+- Then the event moves from event.target up to the root, calling handlers assigned using on`<event>` and addEventListener without the 3rd argument or with the 3rd argument false.
+
+Each handler can access event object properties:
+
+- `event.target` – the deepest element that originated the event.
+- `event.currentTarget` (=this) – the current element that handles the event (the one that has the handler on it)
+- `event.eventPhase` – the current phase (capturing=1, bubbling=3).
+
+
+
+### DOM Selection (after load)
+``` js
+document.querySelector(selector) // get an element
+
+document.querySelector('button')     // find an element with tagName button
+document.querySelector('.className') // find an element with class className
+document.querySelector('#idName')    // find an element with id idName
+```
+
+## Assignments
+
+### Challenge 1: Change Background Color
+
+  see [Challenge](01-challenge.md)  
+
+### Challenge 2: Image Carousel (Optional)
+  see [Challenge](02-challenge.md)  
+
+### Challenge 3: Number Pad (Optional)
+  see [Challenge](03-challenge.md)  
+
+
+
+## Other Resources
+
+### jQuery...
+
+Is a Javascript library that abstracts native javascript APIs which was especially helpful for browser compatibility issues.  
+
+### You might not need jQuery
+- [You dont need jQuery](https://hackernoon.com/you-truly-dont-need-jquery-5f2132b32dd1)  
+- [Vue/React/Angular vs jQuery](https://www.youtube.com/watch?v=WJ2PQe-pQJw)  
