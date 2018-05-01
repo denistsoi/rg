@@ -187,15 +187,3 @@ document.querySelector('#idName')    // find an element with id idName
 
 ### Challenge 3: Number Pad (Optional)
   see [Challenge](03-challenge.md)  
-
-
-
-## Other Resources
-
-### jQuery...
-
-Is a Javascript library that abstracts native javascript APIs which was especially helpful for browser compatibility issues.  
-
-### You might not need jQuery
-- [You dont need jQuery](https://hackernoon.com/you-truly-dont-need-jquery-5f2132b32dd1)  
-- [Vue/React/Angular vs jQuery](https://www.youtube.com/watch?v=WJ2PQe-pQJw)  
