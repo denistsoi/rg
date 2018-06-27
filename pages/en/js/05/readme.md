@@ -4,69 +4,110 @@ next: false
 sidebar: auto
 ---
 
-# Classes + Prototypes in Javascript
+# Lesson 5 - Recap
 
-###
+### Lets build a calculator
 
-``` js
-class Carousel {
-  // where we want to save things to class
-  constructor(props) {
-    super(props);
-  }
-
-  // methods
-  goTo(image) {
-    //goTo image
-  }
-}
+### how do we attach a javascript function to html
+``` html
+<body>
+  <button onclick="add()">increment</button>
+  <span>Total<span id="count"></span></span>
+</body>
 ```
 
 ``` js
-function Carousel (props) {
-  this.props = props;
-}
+let counter = 0;
 
-// append methods
-Carousel.prototype.goTo = function(image) {
-  // goTo image
+function add () {
+  counter = counter ++;
 }
 ```
 
-### Async Javascript (single-thread) 
+### add input element
+``` html
+<body>
+  <button onclick="add()">increment</button>
+
+  <input id="userInput" type="number" />
+  <span>Total<span id="count"></span></span>
+
+</body>
+```
+
+### get user input into javascript
 
 ``` js
-function downloadData(source, callback) {
-  return callback()
-}
+let counter = 0;
 
-function handleData (error, data) {
-  if (error) { 
-    console.error('there was a problem with', error);
-  } else { 
-    console.log('download finished', data) 
-  }
-  return data;
+function add () {
+  counter = counter + parseInt(userInput.value);
 }
+```
 
-downloadData('http://www.bbc.com/news/world-asia-43818751', handleData);
+* we `parseInt` as `userInput.value` is of type `string`;
+
+
+
+### add minus, multiply and divide buttons
+
+``` html
+<body>
+  <button onclick="add()">increment</button>
+  <button onclick="minus()">decrement</button>
+  <button onclick="multiply()">multiply</button>
+  <button onclick="divide()">divide</button>
+
+  <input id="userInput" type="number" />
+  <span>Total<span id="count"></span></span>
+
+</body>
 ```
 
 
-### form submission
+
+### write minus,  multiply and divide functions
+
 
 ``` js
-var form = document.querySelector('form')
-form.onsubmit = function (submitEvent) {
-  var name = document.querySelector('input').value
-  request({
-    uri: "http://example.com/upload",
-    body: name,
-    method: "POST"
-  }, function (err, response, body) {
-    var statusMessage = document.querySelector('.status')
-    if (err) return statusMessage.value = err
-    statusMessage.value = body
-  })
+let counter = 0;
+
+function add () {
+  counter = counter + parseInt(userInput.value);
+}
+
+function minus () {
+ 
+}
+
+function multiply () {
+ 
+}
+
+function divide () {
+ 
+}
+```
+
+### (answer)
+
+
+``` js
+let counter = 0;
+
+function add () {
+  counter = counter + parseInt(userInput.value);
+}
+
+function minus () {
+  counter = counter - parseInt(userInput.value);
+}
+
+function multiply () {
+  counter = counter * parseInt(userInput.value);
+}
+
+function divide () {
+  counter = counter / parseInt(userInput.value);
 }
 ```

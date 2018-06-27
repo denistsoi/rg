@@ -1,62 +1,144 @@
----
-prev: /en/js/04/
-next: /en/js/04/solution.md
----
+## Task
 
-## Challenge
+- Create a banking app
 
-### Instructions
+it must:
+- create an account
+- allow account deposits
+- allow account withdrawals
+- allow account to show transaction history
+- allow account to set pin
 
-You are a shop owner with an inventory of items.
-You want to calculate the total amount of all your items.
+it must:
+- allow accounts to transfer to one another  
 
-the following represents your shop.
+## html
+
+``` html
+<html>
+<body>
+  <div>
+    <label>Account Info</label>
+    <br>
+    <label>Name</label>
+    <input 
+    id="accountInput"                          
+    oninput="handleInput()" 
+    placeholder="Account number..." />
+  </div>
+
+  <hr />
+  <div>
+    <label>Transactions</label>
+    <br />
+    <label>Amount:</label>
+    <input 
+    id="amount" 
+          
+    />
+
+    <br />
+    <label>Transfer From:</label>
+    <select onchange="transferFrom()">
+      <option disabled selected value> -- select an option -- </option>
+      <option value="savings">Savings</option>
+      <option value="checking">Checking</option>    
+    </select>
+
+    <br />
+    <label>Transfer To:</label>
+    <select onchange="transferTo()">
+      <option disabled selected value> -- select an option -- </option>
+      <option value="savings">Savings</option>
+      <option value="checking">Checking</option>    
+    </select>
+  </div>
+
+  <div>
+    <hr />
+    <label>Transaction History</label>
+    <br />
+      <label>Name:</label>
+    
+    <br />
+      <label>Account Type:</label>
+    
+    <br />
+      <label>Transfer To:</label> 
+    <br />
+    
+    <div>
+      <button 
+        value="deposit"
+        onclick="deposit()">
+        Deposit
+      </button>
+      <button 
+        value="withdraw" 
+        onclick="withdraw()">
+        Withdraw
+      </button>
+      <button 
+        value="transfer"
+        onclick="transfer()">
+        Transfer
+      </button>
+      <button 
+        value="view"
+        onclick="viewAll()">
+        View Transactions
+      </button>
+    </div>
+    
+    <hr />
+    <label>List of Transactions</label>
+  </div>
+</body>
+</html>
+```
+
+## js
 
 ``` js
-var items = [
-  {
-    name: 'Apple',
-    qty:   6,
-    value: 1
-  },
-  {
-    name: 'Water',
-    qty:   10,
-    value:  2
-  },
-  {
-    name: 'Newspaper',
-    qty:   6,
-    value: 4
-  }
-];
 
-function calculateValue(items) {
-  // some code
-  return totalAmount;
+function Account (name) {
+  this.name = name;
+  this.transactions = [];
+  this.amount = 0;
+}
+
+Account.prototype.transfer = function () {
+  
+}
+
+Account.prototype.deposit = function(amount) {
+  this.balance = this.balance + amount;
+}
+
+Account.prototype.withdraw = function(amount) {
+  
+}
+
+function Bank () {
+  this.accounts = [];
+}
+
+Bank.prototype.AddAccount = function(account) {
+  var newAccount = new Account(account);
+  this.accounts.push(newAccount);
+}
+
+var bank = new Bank();
+bank.addAccount({ name: 'checking' });
+bank.addAccount({ name: 'savings' });
+
+/**
+ * Dom Events
+ */
+
+
+function handleInput() {
+  var value = accountInput.value;
+  // we need to save name somewhere
 }
 ```
-
-> Note: 
-in calculateCost function, remember to iterate over your items and for-each item, you need to calculate the total value for all numbers of items   
-e.g. if you have `10 Tomatoes with value 3` - then the total value of (var Tomatoes = 3 * 10);
-
-Then:
-You get a shipment of new items in your shop
-
-``` js
-var newItems = [{
-  name: 'Tomato',
-  qty:   16,
-  value: 0.5
-}, {
-  name: 'Egg',
-  qty:   12,
-  value: 1
-}];
-
-```
-...add each newItem to your store items inventory and re-calculate the value of your store.
-
-#### Reminder: 
-> you need to iterate over your newItems to push/append an item to your store. then use calculateValue again to recalculate the value of your inventory.
