@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="English">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Refugeek | Solution</title>
+    <meta name="description" content="Content for Programming Classes">
+    
+    
+    <link rel="preload" href="/rg/assets/css/0.styles.405b9c56.css" as="style"><link rel="preload" href="/rg/assets/js/app.06779a1e.js" as="script"><link rel="preload" href="/rg/assets/js/24.1044391b.js" as="script"><link rel="prefetch" href="/rg/assets/js/14.96bc99cc.js"><link rel="prefetch" href="/rg/assets/js/1.3356801e.js"><link rel="prefetch" href="/rg/assets/js/2.1169e3fd.js"><link rel="prefetch" href="/rg/assets/js/3.299d0625.js"><link rel="prefetch" href="/rg/assets/js/4.11b469fd.js"><link rel="prefetch" href="/rg/assets/js/5.c5038f8e.js"><link rel="prefetch" href="/rg/assets/js/6.7786fa86.js"><link rel="prefetch" href="/rg/assets/js/7.ad63e516.js"><link rel="prefetch" href="/rg/assets/js/8.3643f8ca.js"><link rel="prefetch" href="/rg/assets/js/9.918d5ba7.js"><link rel="prefetch" href="/rg/assets/js/10.47e03cce.js"><link rel="prefetch" href="/rg/assets/js/11.c812ace1.js"><link rel="prefetch" href="/rg/assets/js/12.13db243c.js"><link rel="prefetch" href="/rg/assets/js/13.678d9342.js"><link rel="prefetch" href="/rg/assets/js/15.d597261f.js"><link rel="prefetch" href="/rg/assets/js/16.80a88033.js"><link rel="prefetch" href="/rg/assets/js/17.bda2a9c2.js"><link rel="prefetch" href="/rg/assets/js/18.65e0bd77.js"><link rel="prefetch" href="/rg/assets/js/19.c9079f1c.js"><link rel="prefetch" href="/rg/assets/js/20.1396d2ba.js"><link rel="prefetch" href="/rg/assets/js/21.b32148ac.js"><link rel="prefetch" href="/rg/assets/js/22.8f16e918.js"><link rel="prefetch" href="/rg/assets/js/23.1a73f6a4.js"><link rel="prefetch" href="/rg/assets/js/25.ee378643.js"><link rel="prefetch" href="/rg/assets/js/26.3fc1867b.js"><link rel="prefetch" href="/rg/assets/js/27.5e98abfd.js"><link rel="prefetch" href="/rg/assets/js/28.4e242cfc.js">
+    <link rel="stylesheet" href="/rg/assets/css/0.styles.405b9c56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/rg/" class="home-link router-link-active"><!----><span class="site-name">
+      Refugeek
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/rg/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span><span class="arrow"></span></a><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/rg/en/js/01/solution.html" class="nav-link router-link-exact-active router-link-active">English</a></li></ul></div></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/rg/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span><span class="arrow"></span></a><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/rg/en/js/01/solution.html" class="nav-link router-link-exact-active router-link-active">English</a></li></ul></div></div><!----></nav><!----></div><div class="page"><div class="content"><h2 id="solution"><a href="#solution" aria-hidden="true" class="header-anchor">#</a> Solution</h2><pre class="language-js"><code><span class="token comment">// Rock paper scissors</span>
+<span class="token comment">// constants</span>
+<span class="token keyword">var</span> Rock <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Paper <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Scissors <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">validate</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> value <span class="token operator">!=</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'value is not a number, '</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">' chose: '</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&gt;</span> <span class="token number">2</span> <span class="token operator">||</span> value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'value is not 0, 1 or 2, '</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">' chose: '</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * game function
+ * @description 
+ * @param {Number} p1 
+ * @param {Number} p2 
+ * @return {String} resulf of who wins
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">game</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// if p1 or p2 !== 0,1,2, return error </span>
+  <span class="token function">validate</span><span class="token punctuation">(</span><span class="token string">'player1'</span><span class="token punctuation">,</span> p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">validate</span><span class="token punctuation">(</span><span class="token string">'player2'</span><span class="token punctuation">,</span> p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// return draw if p1 is same as p2</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p1 <span class="token operator">===</span> p2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'draw'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token string">'draw'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// player1 wins</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    p1 <span class="token operator">===</span> Rock     <span class="token operator">&amp;&amp;</span> p2 <span class="token operator">===</span> Scissors <span class="token operator">||</span>
+    p1 <span class="token operator">===</span> Paper    <span class="token operator">&amp;&amp;</span> p2 <span class="token operator">===</span> Rock <span class="token operator">||</span> 
+    p1 <span class="token operator">===</span> Scissors <span class="token operator">&amp;&amp;</span> p2 <span class="token operator">===</span> Paper
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'p1 wins, p1 picked: '</span> <span class="token operator">+</span> p1 <span class="token operator">+</span> <span class="token string">' p2 picked: '</span> <span class="token operator">+</span> p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token string">'player 1 wins'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'p2 wins, p2 picked: '</span> <span class="token operator">+</span> p2 <span class="token operator">+</span> <span class="token string">' p1 picked: '</span> <span class="token operator">+</span> p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token string">'player 2 wins'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// game(0, -1) // should throw error</span>
+<span class="token comment">// game('srgin', -1) // should throw error</span>
+<span class="token function">game</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// who wins? // player1 </span>
+<span class="token function">game</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// player1</span>
+<span class="token function">game</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// should return player 2</span>
+</code></pre></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/rg/en/js/01/challenge.html" class="prev">
+          Challenge
+        </a></span><span class="next"><a href="/rg/en/" class="router-link-active">
+          Contents
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/rg/assets/js/24.1044391b.js" defer></script><script src="/rg/assets/js/app.06779a1e.js" defer></script>
+  </body>
+</html>

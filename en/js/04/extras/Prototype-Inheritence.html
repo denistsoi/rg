@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="English">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Refugeek | Extends / Inheritence</title>
+    <meta name="description" content="Content for Programming Classes">
+    
+    
+    <link rel="preload" href="/rg/assets/css/0.styles.405b9c56.css" as="style"><link rel="preload" href="/rg/assets/js/app.06779a1e.js" as="script"><link rel="preload" href="/rg/assets/js/8.3643f8ca.js" as="script"><link rel="prefetch" href="/rg/assets/js/14.96bc99cc.js"><link rel="prefetch" href="/rg/assets/js/1.3356801e.js"><link rel="prefetch" href="/rg/assets/js/2.1169e3fd.js"><link rel="prefetch" href="/rg/assets/js/3.299d0625.js"><link rel="prefetch" href="/rg/assets/js/4.11b469fd.js"><link rel="prefetch" href="/rg/assets/js/5.c5038f8e.js"><link rel="prefetch" href="/rg/assets/js/6.7786fa86.js"><link rel="prefetch" href="/rg/assets/js/7.ad63e516.js"><link rel="prefetch" href="/rg/assets/js/9.918d5ba7.js"><link rel="prefetch" href="/rg/assets/js/10.47e03cce.js"><link rel="prefetch" href="/rg/assets/js/11.c812ace1.js"><link rel="prefetch" href="/rg/assets/js/12.13db243c.js"><link rel="prefetch" href="/rg/assets/js/13.678d9342.js"><link rel="prefetch" href="/rg/assets/js/15.d597261f.js"><link rel="prefetch" href="/rg/assets/js/16.80a88033.js"><link rel="prefetch" href="/rg/assets/js/17.bda2a9c2.js"><link rel="prefetch" href="/rg/assets/js/18.65e0bd77.js"><link rel="prefetch" href="/rg/assets/js/19.c9079f1c.js"><link rel="prefetch" href="/rg/assets/js/20.1396d2ba.js"><link rel="prefetch" href="/rg/assets/js/21.b32148ac.js"><link rel="prefetch" href="/rg/assets/js/22.8f16e918.js"><link rel="prefetch" href="/rg/assets/js/23.1a73f6a4.js"><link rel="prefetch" href="/rg/assets/js/24.1044391b.js"><link rel="prefetch" href="/rg/assets/js/25.ee378643.js"><link rel="prefetch" href="/rg/assets/js/26.3fc1867b.js"><link rel="prefetch" href="/rg/assets/js/27.5e98abfd.js"><link rel="prefetch" href="/rg/assets/js/28.4e242cfc.js">
+    <link rel="stylesheet" href="/rg/assets/css/0.styles.405b9c56.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/rg/" class="home-link router-link-active"><!----><span class="site-name">
+      Refugeek
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/rg/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span><span class="arrow"></span></a><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/rg/en/js/04/extras/Prototype-Inheritence.html" class="nav-link router-link-exact-active router-link-active">English</a></li></ul></div></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/rg/" class="nav-link">Home</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span><span class="arrow"></span></a><ul class="nav-dropdown"><li class="dropdown-item"><!----><a href="/rg/en/js/04/extras/Prototype-Inheritence.html" class="nav-link router-link-exact-active router-link-active">English</a></li></ul></div></div><!----></nav><!----></div><div class="page"><div class="content"><h3 id="extends-inheritence"><a href="#extends-inheritence" aria-hidden="true" class="header-anchor">#</a> Extends / Inheritence</h3><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Person</span> <span class="token punctuation">(</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name  <span class="token operator">=</span> params<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age   <span class="token operator">=</span> params<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>likes <span class="token operator">=</span> params<span class="token punctuation">.</span>likes <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">sayHi</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> greet <span class="token operator">=</span> <span class="token string">'Hi my name is '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre><h3 id="extending-prototype"><a href="#extending-prototype" aria-hidden="true" class="header-anchor">#</a> Extending prototype</h3><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Programmer</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Person<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;== here is where programmer inherits from Person</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>languages <span class="token operator">=</span> params<span class="token punctuation">.</span>languages<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Programmer<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> Denis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Programmer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+  name<span class="token punctuation">:</span> <span class="token string">&quot;Denis&quot;</span><span class="token punctuation">,</span> 
+  age<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> 
+  likes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'computers'</span><span class="token punctuation">,</span> <span class="token string">'books'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  languages<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+Denis<span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Denis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/rg/assets/js/8.3643f8ca.js" defer></script><script src="/rg/assets/js/app.06779a1e.js" defer></script>
+  </body>
+</html>
